@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FoodPrint</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="settings">Settings</string>
+    <string name="liste_courses">Shopping List</string>
+</resources>

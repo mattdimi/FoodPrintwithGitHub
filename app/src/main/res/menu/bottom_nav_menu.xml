@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home"
+        android:checkable="true"></item>
+
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_dashboard"
+        android:checkable="true"/>
+
+
+    <item android:id="@+id/liste_courses"
+        android:checkable="true"
+        android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+        android:title="@string/liste_courses"></item>
+
+
+    <item
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/settings"
+        android:id="@+id/settings"
+        android:checkable="true"></item>
+
+
+
+</menu>
