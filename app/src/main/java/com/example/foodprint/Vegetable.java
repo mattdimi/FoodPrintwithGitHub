@@ -1,9 +1,12 @@
 package com.example.foodprint;
 
 import android.content.Context;
+import android.widget.Button;
 import android.widget.ImageView;
 
-public class Vegetable {
+import androidx.appcompat.widget.AppCompatButton;
+
+public class Vegetable extends AppCompatButton{
     int[] mois;
     String nom;
     int empreinte_carbone;
@@ -11,6 +14,6 @@ public class Vegetable {
 
 
     public Vegetable(Context context) {
-
+        super(context);
     }
 }
