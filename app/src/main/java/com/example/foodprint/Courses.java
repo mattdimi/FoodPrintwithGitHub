@@ -1,5 +1,6 @@
 package com.example.foodprint;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -20,6 +21,9 @@ public class Courses extends MotherActivity {
     }
 
     public void AjouterProduit(View view) {
+        Intent afficherlisteproduits = new Intent();
+        afficherlisteproduits.setClass(this, ListeVegetablesActivity.class);
+        startActivity(afficherlisteproduits);
 
 
     }
