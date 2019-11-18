@@ -11,6 +11,6 @@ public class ListeVegetablesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_vegetables);
 
-        //MASTER
+        //VERSION MASTER 17h37
     }
 }
