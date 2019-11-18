@@ -17,8 +17,7 @@
 
 
 
-
-
+    
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
@@ -32,10 +31,12 @@
         android:id="@+id/boutonAjouter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:onClick="AjouterProduit"
+        android:text="Ajouter un produit"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="OnClick" />
 
     <ScrollView
         android:layout_width="409dp"
