@@ -1,8 +1,7 @@
 package com.example.foodprint;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 public class Courses extends MotherActivity {
@@ -13,5 +12,11 @@ public class Courses extends MotherActivity {
         setContentView(R.layout.activity_courses);
 
         Toast.makeText(Courses.this, "courses", Toast.LENGTH_LONG).show();
+
+    }
+
+    public void AjouterProduit(View view) {
+
+
     }
 }

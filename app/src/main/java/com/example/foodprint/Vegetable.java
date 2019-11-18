@@ -1,18 +1,9 @@
 package com.example.foodprint;
 
-import android.content.Context;
-import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.appcompat.widget.AppCompatButton;
-
-import java.util.Vector;
-
-public class
-Vegetable {
+public class Vegetable {
     int[] mois;
-
-
     String nom;
     int empreinte_carbone;
     ImageView imageView;

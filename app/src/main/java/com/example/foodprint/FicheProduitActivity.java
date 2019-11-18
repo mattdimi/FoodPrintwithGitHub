@@ -8,22 +8,17 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FicheProduitActivity extends AppCompatActivity {
 
 
-    public Vegetable ProduitChoisi;
-
-
+    private Vegetable ProduitChoisi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_produit);
 
-
-
-
-
     }
 
     public void AjouterListe(View view) {
+
 
     }
 
