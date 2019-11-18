@@ -8,20 +8,6 @@
     tools:context=".Courses">
 
 
-<<<<<<< HEAD
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-=======
-    
-
->>>>>>> 9d7c843e432ad4317e0ca221caf7137ee19f6266
-
     <Button
         android:id="@+id/boutonAjouter"
         android:layout_width="wrap_content"
