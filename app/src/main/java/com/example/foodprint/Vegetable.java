@@ -16,6 +16,5 @@ public class Vegetable extends AppCompatButton{
     public Vegetable(Context context) {
         super(context);
 
-
     }
 }
