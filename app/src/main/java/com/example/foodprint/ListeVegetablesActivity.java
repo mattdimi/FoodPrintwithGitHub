@@ -12,6 +12,6 @@ public class ListeVegetablesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_liste_vegetables);
 
 
-       
+        // CYRIAN
     }
 }
