@@ -7,12 +7,17 @@
     tools:context=".Dashboard">
 
 
+    <include layout="@layout/toolbar"
+        android:id="@id/toolbar"></include>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/nav_view_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginBottom="0dp"
+        app:itemIconTint="@color/bottom_nav_view_selector"
+        app:itemTextColor="@color/bottom_nav_view_selector"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>

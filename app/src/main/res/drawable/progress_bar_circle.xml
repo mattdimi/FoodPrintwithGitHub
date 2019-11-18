@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@android:id/secondaryProgress"
+        android:width="@dimen/progress_bar_size"
+        android:height="@dimen/progress_bar_size">
+        <shape
+            android:shape="ring"
+            android:innerRadiusRatio="2.3"
+            android:thickness="8dp"
+            android:useLevel="true"
+
+            >
+            <solid android:color="@color/grey"></solid>
+        </shape>
+    </item>
+    <item
+        android:id="@android:id/progress"
+        android:width="@dimen/progress_bar_size"
+        android:height="@dimen/progress_bar_size">
+        <shape
+            android:shape="ring"
+            android:innerRadiusRatio="2.3"
+            android:thickness="8dp"
+            android:useLevel="true"
+
+            >
+            <solid android:color="@color/colorAccent"></solid>
+        </shape>
+    </item>
+</layer-list>

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Courses extends MotherActivity {
@@ -12,10 +14,13 @@ public class Courses extends MotherActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
-        BottomNavigationView navigationView = findViewById(R.id.nav_view);
+         BottomNavigationView navigationView  = findViewById(R.id.nav_view_courses);
+         navigationView.setSelectedItemId(R.id.liste_courses);
         navigationView.setOnNavigationItemSelectedListener(super.mOnNavigationItemSelectedListener);
 
-        Toast.makeText(Courses.this, "courses", Toast.LENGTH_LONG).show();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        setSupportActionBar(toolbar);
 
     }
 
