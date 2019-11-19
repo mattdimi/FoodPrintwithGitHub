@@ -39,8 +39,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginBottom="0dp"
-        app:itemIconTint="@color/bottom_nav_view_selector"
-        app:itemTextColor="@color/bottom_nav_view_selector"
+
+        app:itemTextColor="@color/cardview_dark_background"
+        app:itemIconTint="@color/cardview_dark_background"
+
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
