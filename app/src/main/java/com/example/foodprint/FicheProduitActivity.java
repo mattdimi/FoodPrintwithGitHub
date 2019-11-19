@@ -21,6 +21,10 @@ public class FicheProduitActivity extends AppCompatActivity {
 
     }
 
+    // pour les 2 boutons qui suivent on va recuperer le legume qu'on a stocké dans le Intent (étiquette : "produitchoisi")
+    //NB : dans le bouton Retour, on ne l'utile pas
+    //     dans le bouton AJouter, on va fzire en sorte d'ajouter ce legume a la liste de course, en faisant encore un putExtra
+
     public void AjouterListe(View view) {
         Intent ajoutListe = getIntent();
         ajoutListe.setClass(this, Courses.class);

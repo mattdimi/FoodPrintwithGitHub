@@ -22,7 +22,7 @@ public class ListeVegetablesActivity extends AppCompatActivity {
 
 
 
-    // test
+    // CREATION de la liste de legumes sur laquelle on va iterer pour creer les BOUTONS du gridview
 
     int[] mois = new int[] {0, 1};
     String name1 = "aubergine";
@@ -64,7 +64,7 @@ public class ListeVegetablesActivity extends AppCompatActivity {
 
     class GridViewAdapter extends BaseAdapter {
 
-        List<Vegetable> lstSource;
+        List<Vegetable> lstSource;    // liste de legumes sur laquelle on itere pour creer les boutons
         Context mContext;
 
         public GridViewAdapter(List<Vegetable> lstSource, Context mContext) {
@@ -97,15 +97,16 @@ public class ListeVegetablesActivity extends AppCompatActivity {
 
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             final Button button;
             if (convertView == null) {
 
+                // creation de tous les boutons
 
                 button = new Button(mContext);
                 button.setLayoutParams(new GridView.LayoutParams(385, 385));
                 button.setPadding(8, 8, 8, 8);
-                button.setText(lstSource.get(position).getNom());
+                button.setText(lstSource.get(position).getNom());    // on met comme texte sur le bouton le nom du legume en position "position" dans la liste des legumes
                 button.setBackgroundColor(Color.RED);
                 button.setTextColor(Color.WHITE);
 
@@ -113,15 +114,13 @@ public class ListeVegetablesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        Log.i("alphabet", "je suis passé");
-                        String lettre = button.getText().toString();
+                        String nom_produit = lstSource.get(position).getNom();
 
-
-                        Toast.makeText(mContext, lettre, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, nom_produit, Toast.LENGTH_SHORT).show();
                         Intent passageSuite = new Intent();
                         passageSuite.setClass(mContext, FicheProduitActivity.class);
-                        passageSuite.putExtra("lettre", lettre);
-                        startActivity(passageSuite);
+                        passageSuite.putExtra("produitchoisi", nom_produit);   // on passe dans le intent le vegetable associé au bouton
+                        startActivity(passageSuite);  // on passe a l'axtivité FicheProduit
 
                     }
                 });
