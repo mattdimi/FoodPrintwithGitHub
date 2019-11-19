@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".FicheProduitActivity">
 
+
+
+
     <TextView
         android:id="@+id/textPeriode"
         android:layout_width="90dp"

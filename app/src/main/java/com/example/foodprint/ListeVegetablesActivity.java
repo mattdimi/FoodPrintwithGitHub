@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -55,6 +56,7 @@ public class ListeVegetablesActivity extends MotherActivity {
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
 
+
         setUpList();
         GridView LagridView;
         LagridView = findViewById(R.id.MygridView);
@@ -78,14 +80,8 @@ public class ListeVegetablesActivity extends MotherActivity {
         Context mContext;
 
         public GridViewAdapter(List<Vegetable> lstSource, Context mContext) {
-            /*
-            Log.i("passage", "heeeey creation");
-            String msg = "";
-            for(int i=0; i< lstSource.size(); i++){
-                msg += lstSource.get(i);
-            }
-            Log.i("passage", "here : "+msg);
-            */
+
+
             this.lstSource = lstSource;
             this.mContext = mContext;
         }
@@ -116,10 +112,13 @@ public class ListeVegetablesActivity extends MotherActivity {
                 convertView = layoutInflater.inflate(R.layout.casesdelagrid, null);
 
 
-                // Affichage de la photo des fruits   ---> A COMPLETER
-                // final ImageView imageView = (ImageView) convertView.findViewById(R.id. METTRE l'ID DE l'IMAGE VIEW QUI EST DANS LE LAYOUT "casedelagrid" );
+                /// Affichage de la photo des fruits   ---> A COMPLETER
 
-                // Affichager du nom du fruit sur le bouton. Quand on clique sur le bouton ça affiche la fiche du fruit
+                final ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
+                imageView.setImageResource(R.drawable.ananas);
+
+
+                /// Affichager du nom du fruit sur le bouton. Quand on clique sur le bouton ça affiche la fiche du fruit
                 final Button button = (Button) convertView.findViewById(R.id.button);
 
                 button.setText(lstSource.get(position).getNom());    // on met comme texte sur le bouton le nom du legume en position "position" dans la liste des legumes
