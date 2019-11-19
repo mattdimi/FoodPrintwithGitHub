@@ -9,8 +9,8 @@ public class Vegetable implements Serializable {
     //ImageView imageView;
 
 
-    //public Vegetable(int[] Mois, String Nom, int Empreinte_carbone, ImageView ImageView){
-    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone){
+    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone /*, ImageView ImageView */){
+
         mois = Mois;
         nom = Nom;
         empreinte_carbone = Empreinte_carbone;
@@ -43,15 +43,18 @@ public class Vegetable implements Serializable {
         this.empreinte_carbone = empreinte_carbone;
     }
 
-    /*public ImageView getImageView() {
+    /*
+    public ImageView getImageView() {
         return imageView;
     }
 
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
     }
+    */
 
-     */
+
+
 
 
 }

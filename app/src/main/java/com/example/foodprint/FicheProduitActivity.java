@@ -19,17 +19,20 @@ public class FicheProduitActivity extends AppCompatActivity {
         Intent recupProduitChoisi = getIntent();
         Vegetable ProduitChoisi = (Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
 
-        //affichage de toutes les infos du legume en modifiaznt le layout
+        //affichage de toutes les infos du legume en modifiant le layout
+
         TextView tvPeriode = findViewById(R.id.textPeriode);
         TextView tvEmpreinte = findViewById(R.id.textEmpreinte);
 
         String[] Liste_Mois = new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
+        int[] Liste_Mois_De_Saison = ProduitChoisi.getMois();
+        int nombreMoisDeSaison = Liste_Mois_De_Saison.length;
 
-        String mois_minimum = Liste_Mois[ProduitChoisi.getMois()[0]];
-        String mois_maximum = Liste_Mois[ProduitChoisi.getMois()[0]];
+        String mois_minimum = Liste_Mois[Liste_Mois_De_Saison[0]];   // premier mois de la liste des mois de Saison du produit
+        String mois_maximum = Liste_Mois[Liste_Mois_De_Saison[nombreMoisDeSaison-1]];   // dernier mois de la liste des mois de Saison du produit
 
         tvPeriode.setText("De Saison de "+mois_minimum+" à "+mois_maximum);
-        tvEmpreinte.setText("Empreinte carbone : "+ProduitChoisi);
+        tvEmpreinte.setText("Empreinte carbone : "+ProduitChoisi.getEmpreinte_carbone());
 
 
 

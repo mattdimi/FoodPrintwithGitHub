@@ -4,13 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,15 +22,23 @@ public class ListeVegetablesActivity extends AppCompatActivity {
 
     // CREATION de la liste de legumes sur laquelle on va iterer pour creer les BOUTONS du gridview
 
+
+    // Ici pour l'exemple j'ai juste changer le nom des legumes, j'ai mis tout pareil pour le reste
+
     int[] mois = new int[] {0, 1};
     String name1 = "aubergine";
     String name2 = "poivron";
     String name3 = "ananas";
     int emp = 0;
+    // ImageView im =
 
-    Vegetable aubergine = new Vegetable(mois, name1, emp);
-    Vegetable ananas = new Vegetable(mois, name2, emp);
-    Vegetable poivron = new Vegetable(mois, name3, emp);
+
+
+
+
+    Vegetable aubergine = new Vegetable(mois, name1, emp /*, im */);
+    Vegetable ananas = new Vegetable(mois, name2, emp  /*, im */);
+    Vegetable poivron = new Vegetable(mois, name3, emp /*, im */);
 
     Vegetable[] array_characters = new Vegetable[]{aubergine, poivron, ananas};
 
@@ -49,7 +55,6 @@ public class ListeVegetablesActivity extends AppCompatActivity {
         LagridView = findViewById(R.id.MygridView);
         LagridView.getColumnWidth();
         GridViewAdapter adapter = new GridViewAdapter(lstSource, this);
-        Log.i("passage", "here : "+adapter.getCount());
         LagridView.setAdapter(adapter);
 
     }
@@ -114,14 +119,18 @@ public class ListeVegetablesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        String nom_produit = lstSource.get(position).getNom();
-                        Vegetable ProduitChoisi = lstSource.get(position);
 
-                        Toast.makeText(mContext, nom_produit, Toast.LENGTH_SHORT).show();
+                        Vegetable ProduitChoisi = lstSource.get(position);
+                        // NB : ProduitChoisi est un objet de la class Vegetable, il a donc toutes les méthodes associées getMois, getNom, etc
+
+                        String nom_produit = ProduitChoisi.getNom();
+
+                        //Toast.makeText(mContext, nom_produit, Toast.LENGTH_SHORT).show(); //affiche un toast avec le nom du produit selectionné
+
                         Intent passageSuite = new Intent();
                         passageSuite.setClass(mContext, FicheProduitActivity.class);
                         passageSuite.putExtra("produitchoisi", ProduitChoisi);   // on passe dans le intent le vegetable associé au bouton
-                        startActivity(passageSuite);  // on passe a l'axtivité FicheProduit
+                        startActivity(passageSuite);         // on passe a l'activité FicheProduit
 
                     }
                 });
