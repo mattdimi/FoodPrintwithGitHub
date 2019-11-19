@@ -115,11 +115,12 @@ public class ListeVegetablesActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
                         String nom_produit = lstSource.get(position).getNom();
+                        Vegetable ProduitChoisi = lstSource.get(position);
 
                         Toast.makeText(mContext, nom_produit, Toast.LENGTH_SHORT).show();
                         Intent passageSuite = new Intent();
                         passageSuite.setClass(mContext, FicheProduitActivity.class);
-                        passageSuite.putExtra("produitchoisi", nom_produit);   // on passe dans le intent le vegetable associé au bouton
+                        passageSuite.putExtra("produitchoisi", ProduitChoisi);   // on passe dans le intent le vegetable associé au bouton
                         startActivity(passageSuite);  // on passe a l'axtivité FicheProduit
 
                     }

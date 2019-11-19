@@ -3,6 +3,7 @@ package com.example.foodprint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,8 +16,22 @@ public class FicheProduitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_produit);
-        Intent ProduitChoisi = getIntent();
-        ProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
+        Intent recupProduitChoisi = getIntent();
+        Vegetable ProduitChoisi = (Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
+
+        //affichage de toutes les infos du legume en modifiaznt le layout
+        TextView tvPeriode = findViewById(R.id.textPeriode);
+        TextView tvEmpreinte = findViewById(R.id.textEmpreinte);
+
+        String[] Liste_Mois = new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
+
+        String mois_minimum = Liste_Mois[ProduitChoisi.getMois()[0]];
+        String mois_maximum = Liste_Mois[ProduitChoisi.getMois()[0]];
+
+        tvPeriode.setText("De Saison de "+mois_minimum+" à "+mois_maximum);
+        tvEmpreinte.setText("Empreinte carbone : "+ProduitChoisi);
+
+
 
 
     }
@@ -28,6 +43,11 @@ public class FicheProduitActivity extends AppCompatActivity {
     public void AjouterListe(View view) {
         Intent ajoutListe = getIntent();
         ajoutListe.setClass(this, Courses.class);
+        ajoutListe.putExtra("produitAjout",ProduitChoisi);
+
+
+
+
 
         // ajouter la putExtra du légume à ajouter
 
