@@ -4,20 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 //VERSION MASTER 10h19
-public class ListeVegetablesActivity extends AppCompatActivity {
-
+public class ListeVegetablesActivity extends MotherActivity {
 
 
     // CREATION de la liste de legumes sur laquelle on va iterer pour creer les BOUTONS du gridview
@@ -25,15 +27,12 @@ public class ListeVegetablesActivity extends AppCompatActivity {
 
     // Ici pour l'exemple j'ai juste changer le nom des legumes, j'ai mis tout pareil pour le reste
 
-    int[] mois = new int[] {0, 1};
+    int[] mois = new int[]{0, 1};
     String name1 = "aubergine";
     String name2 = "poivron";
     String name3 = "ananas";
     int emp = 0;
     // ImageView im =
-
-
-
 
 
     Vegetable aubergine = new Vegetable(mois, name1, emp /*, im */);
@@ -49,6 +48,12 @@ public class ListeVegetablesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_vegetables);
+         BottomNavigationView navigationView  = findViewById(R.id.nav_view_courses);
+         navigationView.setSelectedItemId(R.id.liste_courses);
+        navigationView.setOnNavigationItemSelectedListener(super.mOnNavigationItemSelectedListener);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        setSupportActionBar(toolbar);
 
         setUpList();
         GridView LagridView;
@@ -103,14 +108,20 @@ public class ListeVegetablesActivity extends AppCompatActivity {
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-            final Button button;
+
             if (convertView == null) {
 
-                // creation de tous les boutons
+                /// creation de tous les boutons
+                final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+                convertView = layoutInflater.inflate(R.layout.casesdelagrid, null);
 
-                button = new Button(mContext);
-                button.setLayoutParams(new GridView.LayoutParams(385, 385));
-                button.setPadding(8, 8, 8, 8);
+
+                // Affichage de la photo des fruits   ---> A COMPLETER
+                // final ImageView imageView = (ImageView) convertView.findViewById(R.id. METTRE l'ID DE l'IMAGE VIEW QUI EST DANS LE LAYOUT "casedelagrid" );
+
+                // Affichager du nom du fruit sur le bouton. Quand on clique sur le bouton ça affiche la fiche du fruit
+                final Button button = (Button) convertView.findViewById(R.id.button);
+
                 button.setText(lstSource.get(position).getNom());    // on met comme texte sur le bouton le nom du legume en position "position" dans la liste des legumes
                 button.setBackgroundColor(Color.RED);
                 button.setTextColor(Color.WHITE);
@@ -135,11 +146,10 @@ public class ListeVegetablesActivity extends AppCompatActivity {
                     }
                 });
 
-            } else
-                button = (Button) convertView;
-            return button;
+
+            }
+            return convertView;
 
         }
-
     }
 }
