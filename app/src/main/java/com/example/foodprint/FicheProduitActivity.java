@@ -10,19 +10,23 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FicheProduitActivity extends AppCompatActivity {
 
 
-    private Vegetable ProduitChoisi;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_produit);
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //toolbar.setTitle("Fiche Produit");
         //setSupportActionBar(toolbar);
 
-
         Intent recupProduitChoisi = getIntent();
         Vegetable ProduitChoisi = (Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
+        int position = recupProduitChoisi.getIntExtra("position du fruit", 0);
 
         //affichage de toutes les infos du legume en modifiant le layout
 
@@ -40,8 +44,6 @@ public class FicheProduitActivity extends AppCompatActivity {
         tvEmpreinte.setText("Empreinte carbone : "+ProduitChoisi.getEmpreinte_carbone());
 
 
-
-
     }
 
     // pour les 2 boutons qui suivent on va recuperer le legume qu'on a stocké dans le Intent (étiquette : "produitchoisi")
@@ -49,16 +51,14 @@ public class FicheProduitActivity extends AppCompatActivity {
     //     dans le bouton AJouter, on va fzire en sorte d'ajouter ce legume a la liste de course, en faisant encore un putExtra
 
     public void AjouterListe(View view) {
+
+        Intent recupProduitChoisi = getIntent();
+        Vegetable ProduitChoisi = (Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
+        int position = recupProduitChoisi.getIntExtra("position du fruit", 0);
         Intent ajoutListe = getIntent();
         ajoutListe.setClass(this, Courses.class);
-        ajoutListe.putExtra("produitAjout",ProduitChoisi);
-
-
-
-
-
-        // ajouter la putExtra du légume à ajouter
-
+        ajoutListe.putExtra("produitAjout", ProduitChoisi);
+        ajoutListe.putExtra("position du fruit", position);
         startActivity(ajoutListe);
         finish();
 

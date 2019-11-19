@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -144,13 +145,16 @@ public class ListeVegetablesActivity extends MotherActivity {
                     public void onClick(View v) {
 
 
-
-
                         //Toast.makeText(mContext, nom_produit, Toast.LENGTH_SHORT).show(); //affiche un toast avec le nom du produit selectionné
 
                         Intent passageSuite = new Intent();
                         passageSuite.setClass(mContext, FicheProduitActivity.class);
+                        Toast.makeText(mContext, ProduitChoisi.getNom(), Toast.LENGTH_LONG).show();
+
                         passageSuite.putExtra("produitchoisi", ProduitChoisi);   // on passe dans le intent le vegetable associé au bouton
+
+                        passageSuite.putExtra("position du fruit", position);
+
                         startActivity(passageSuite);         // on passe a l'activité FicheProduit
 
                     }
