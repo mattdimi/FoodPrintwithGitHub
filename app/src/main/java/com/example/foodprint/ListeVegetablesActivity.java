@@ -26,7 +26,7 @@ public class ListeVegetablesActivity extends MotherActivity {
     // CREATION de la liste de legumes sur laquelle on va iterer pour creer les BOUTONS du gridview
 
 
-    // Ici pour l'exemple j'ai juste changer le nom des legumes, j'ai mis tout pareil pour le reste
+    /// Ici pour l'exemple j'ai juste changer le nom des legumes, j'ai mis tout pareil pour le reste
 
     int[] mois = new int[]{0, 1};
     String name1 = "aubergine";
@@ -41,6 +41,8 @@ public class ListeVegetablesActivity extends MotherActivity {
     Vegetable poivron = new Vegetable(mois, name3, emp /*, im */);
 
     Vegetable[] array_characters = new Vegetable[]{aubergine, poivron, ananas};
+
+    ///
 
     List<Vegetable> lstSource = new ArrayList<>();
 
@@ -102,10 +104,17 @@ public class ListeVegetablesActivity extends MotherActivity {
         }
 
 
+        /// Cette méthode automatise la creartion des cases de la GridView
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
 
             if (convertView == null) {
+
+                // On trouve le legume associé à la case
+                final Vegetable ProduitChoisi = lstSource.get(position);
+                // NB : ProduitChoisi est un objet de la class Vegetable, il a donc toutes les méthodes associées getMois, getNom, etc
+                String nom_produit = ProduitChoisi.getNom();
+
 
                 /// creation de tous les boutons
                 final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
@@ -115,10 +124,15 @@ public class ListeVegetablesActivity extends MotherActivity {
                 /// Affichage de la photo des fruits   ---> A COMPLETER
 
                 final ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
-                imageView.setImageResource(R.drawable.ananas);
+                imageView.setImageResource(R.drawable.ananas);  // changer cette ligne pour mettre la bonne image associée a chaque legume
 
 
                 /// Affichager du nom du fruit sur le bouton. Quand on clique sur le bouton ça affiche la fiche du fruit
+
+
+                // SI VOUS VOULEZ CHANGER LES STYLES DE BOUTON IL FAUT LE FAIRE DANS LE LAYOUT casesdelagrid.xml !!!
+
+
                 final Button button = (Button) convertView.findViewById(R.id.button);
 
                 button.setText(lstSource.get(position).getNom());    // on met comme texte sur le bouton le nom du legume en position "position" dans la liste des legumes
@@ -130,10 +144,7 @@ public class ListeVegetablesActivity extends MotherActivity {
                     public void onClick(View v) {
 
 
-                        Vegetable ProduitChoisi = lstSource.get(position);
-                        // NB : ProduitChoisi est un objet de la class Vegetable, il a donc toutes les méthodes associées getMois, getNom, etc
 
-                        String nom_produit = ProduitChoisi.getNom();
 
                         //Toast.makeText(mContext, nom_produit, Toast.LENGTH_SHORT).show(); //affiche un toast avec le nom du produit selectionné
 
