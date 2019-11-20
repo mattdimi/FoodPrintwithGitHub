@@ -140,7 +140,7 @@ public class ListeVegetablesActivity extends MotherActivity {
                 button.setText(lstSource.get(position).getNom());    // on met comme texte sur le bouton le nom du legume en position "position" dans la liste des legumes
                 button.setBackgroundColor(Color.RED);
                 button.setTextColor(Color.WHITE);
-
+//
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
