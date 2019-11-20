@@ -55,12 +55,21 @@ public class FicheProduitActivity extends AppCompatActivity {
         Intent ajoutListe = getIntent();
 
 
-        EditText et = findViewById(R.id.editTextQuantite);
-        String quantité = et.getText().toString();
-        double quantité_number = Double.parseDouble(quantité);
-        ProduitChoisi.setQuantité(quantité_number);
+        double quantité_number = 0;
+        try {
 
-        //double emprunte_carbone = quantité_number *
+            EditText et = findViewById(R.id.editTextQuantite);
+            String quantité = et.getText().toString();
+            quantité_number = Double.parseDouble(quantité);
+            ProduitChoisi.setQuantité(quantité_number);
+            //double emprunte_carbone = quantité_number *
+        } catch(Exception e) {
+
+        }
+
+
+
+
 
         ajoutListe.setClass(this, Courses.class);
         ajoutListe.putExtra("produitAjout", ProduitChoisi);

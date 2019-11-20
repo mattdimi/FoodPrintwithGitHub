@@ -113,11 +113,8 @@ public class Courses extends MotherActivity {
 
                 //nom legume
                 TextView tv = convertView.findViewById(R.id.textViewligne);
-                tv.setText(nom_legume);
+                tv.setText(nom_legume + "en quantité :" +quantite+ "kg");
 
-                //quantite
-                TextView tv2 = convertView.findViewById(R.id.textViewligne2);
-                tv2.setText("Quantité : "+quantite+" g");
 
 
             }

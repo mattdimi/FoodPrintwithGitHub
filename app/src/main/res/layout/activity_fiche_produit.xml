@@ -38,17 +38,6 @@
             tools:layout_editor_absoluteY="510dp"
             android:background="@drawable/iconeminus"/>
 
-        <ImageButton
-            android:id="@+id/BoutonAjouterProduit"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="AjouterListe"
-            tools:ignore="MissingConstraints,OnClick"
-            tools:layout_editor_absoluteX="230dp"
-            tools:layout_editor_absoluteY="510dp"
-            android:background="@drawable/iconeplus"/>
-
-
 
     </LinearLayout>
 
@@ -68,5 +57,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
 
         tools:ignore="MissingConstraints"/>
+
+    <ImageButton
+        android:id="@+id/BoutonAjouterProduit"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/iconeplus"
+        android:onClick="AjouterListe"
+        tools:ignore="MissingConstraints,OnClick"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="510dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
