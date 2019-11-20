@@ -126,7 +126,7 @@ public class ListeVegetablesActivity extends MotherActivity {
                 /// Affichage de la photo des fruits   ---> A COMPLETER
 
                 final ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
-                imageView.setImageResource();  // changer cette ligne pour mettre la bonne image associée a chaque legume
+                //imageView.setImageResource();  // changer cette ligne pour mettre la bonne image associée a chaque legume
 
 
                 /// Affichager du nom du fruit sur le bouton. Quand on clique sur le bouton ça affiche la fiche du fruit
