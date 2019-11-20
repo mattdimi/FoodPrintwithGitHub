@@ -40,10 +40,6 @@ public class FicheProduitActivity extends AppCompatActivity {
         tvPeriode.setText("De Saison de "+mois_minimum+" à "+mois_maximum);
         tvEmpreinte.setText("Empreinte carbone : "+ProduitChoisi.getEmpreinte_carbone());
 
-        EditText et = findViewById(R.id.editTextQuantite);
-        String quantité = et.getText().toString();
-
-
 
     }
 
@@ -57,9 +53,19 @@ public class FicheProduitActivity extends AppCompatActivity {
         Vegetable ProduitChoisi = (Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
         int position = recupProduitChoisi.getIntExtra("position du fruit", 0);
         Intent ajoutListe = getIntent();
+
+
+        EditText et = findViewById(R.id.editTextQuantite);
+        String quantité = et.getText().toString();
+        double quantité_number = Double.parseDouble(quantité);
+        ProduitChoisi.setQuantité(quantité_number);
+
+        //double emprunte_carbone = quantité_number *
+
         ajoutListe.setClass(this, Courses.class);
         ajoutListe.putExtra("produitAjout", ProduitChoisi);
         ajoutListe.putExtra("position du fruit", position);
+        ajoutListe.putExtra("quantité", quantité_number);
         startActivity(ajoutListe);
         finish();
 
