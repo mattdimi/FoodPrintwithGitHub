@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,11 +15,10 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Courses extends MotherActivity {
 
-    ArrayList<String> Liste_Courses = new ArrayList<>();
+    ArrayList<Vegetable> Liste_Courses = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +36,18 @@ public class Courses extends MotherActivity {
 
         Intent produitajouté = getIntent();
         Vegetable ProduitAjouté = (Vegetable) produitajouté.getSerializableExtra("produitAjout");
-        int positionDuProduit = produitajouté.getIntExtra("position du fruit", 0);
+
 
         // ajout du produit à la liste de courses
         if(ProduitAjouté != null){
-            Liste_Courses.add(ProduitAjouté.getNom());
+            Liste_Courses.add(ProduitAjouté);
         }
 
 
         ListView listView = findViewById(R.id.listView);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Liste_Courses);
-
-        listView.setAdapter(arrayAdapter);
+        ListViewAdapter MonAdapter = new ListViewAdapter(Liste_Courses, this);
+//android.R.layout.simple_list_item_1
+        listView.setAdapter(MonAdapter);
 
 
     }
@@ -59,18 +57,16 @@ public class Courses extends MotherActivity {
         afficherliste.setClass(this,ListeVegetablesActivity.class);
         startActivity(afficherliste);
 
-
-
     }
 
 
 
     class ListViewAdapter extends BaseAdapter {
 
-        List<Vegetable> lstSource;    // liste de legumes sur laquelle on itere pour creer les boutons
+        ArrayList<Vegetable> lstSource;    // liste de legumes sur laquelle on itere pour creer les boutons
         Context mContext;
 
-        public ListViewAdapter(List<Vegetable> lstSource, Context mContext) {
+        public ListViewAdapter(ArrayList<Vegetable> lstSource, Context mContext) {
 
 
             this.lstSource = lstSource;
@@ -93,28 +89,27 @@ public class Courses extends MotherActivity {
         }
 
 
-        /// Cette méthode automatise la creartion des cases de la GridView
+        /// Cette méthode automatise la creartion des cases de la ListeView
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
 
             if (convertView == null) {
 
 
-                /// creation de tous les boutons
+                /// creation de toutes les cases
                 final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
                 convertView = layoutInflater.inflate(R.layout.lignesdelaliste, null);
 
                 Vegetable legume_affiche = (Vegetable) getItem(position);
                 String nom_legume = legume_affiche.getNom();
                 double quantite = legume_affiche.getQuantité();
-
+                double empreinte_carbone = legume_affiche.getEmpreinte_carbone()*quantite;
 
                 // parametrage des textes
 
                 //nom legume
                 TextView tv = convertView.findViewById(R.id.textViewligne);
-                tv.setText(nom_legume + "en quantité :" +quantite+ "kg");
-
+                tv.setText(nom_legume+ " en quantité :" +quantite+ "kg  -> empreinte carbone de : "+empreinte_carbone+ " kg de CO2");
 
 
             }

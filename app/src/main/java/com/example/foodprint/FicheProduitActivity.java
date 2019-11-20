@@ -62,11 +62,9 @@ public class FicheProduitActivity extends AppCompatActivity {
             String quantité = et.getText().toString();
             quantité_number = Double.parseDouble(quantité);
             ProduitChoisi.setQuantité(quantité_number);
-            //double emprunte_carbone = quantité_number *
         } catch(Exception e) {
 
         }
-
 
 
 
@@ -75,6 +73,7 @@ public class FicheProduitActivity extends AppCompatActivity {
         ajoutListe.putExtra("produitAjout", ProduitChoisi);
         ajoutListe.putExtra("position du fruit", position);
         ajoutListe.putExtra("quantité", quantité_number);
+
         startActivity(ajoutListe);
         finish();
 
