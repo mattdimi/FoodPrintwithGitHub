@@ -5,4 +5,16 @@
     <string name="settings">Settings</string>
     <string name="liste_courses">Shopping List</string>
     <string name="welcome">Welcome</string>
+    <string name="today">Today</string>
+    <string name="steps">Steps</string>
+    <string name="km">km</string>
+    <string name="calories">Calories</string>
+
+    <string name="expected_carbon_economy">Steps carbon economy</string>
+    <string name="miles">milrd</string>
+    <string name="weight">Current weight</string>
+    <string name="weight_lbs">lbs</string>
+    <string name="daily_step_target">Daily step target</string>
+    <string name="height">Height</string>
+    <string name="Current_carbon_economy">Steps carbon economy</string>
 </resources>

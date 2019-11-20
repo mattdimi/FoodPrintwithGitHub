@@ -30,4 +30,43 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+
+    <include layout="@layout/toolbar"
+        android:id="@id/toolbar"></include>
+
+
+    <GridView
+        android:id="@+id/MygridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="130dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="20dp"
+        android:horizontalSpacing="4dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+
+        />
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view_courses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+
+        app:itemTextColor="@color/cardview_dark_background"
+        app:itemIconTint="@color/cardview_dark_background"
+
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
