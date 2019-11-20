@@ -1,20 +1,22 @@
 package com.example.foodprint;
 
+import android.graphics.drawable.Drawable;
+
 import java.io.Serializable;
 
 public class Vegetable implements Serializable {
     int[] mois;
     String nom;
     int empreinte_carbone;
-    //ImageView imageView;
+    Drawable illustration;
 
 
-    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone /*, ImageView ImageView */){
+    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone, Drawable Illustration ){
 
         mois = Mois;
         nom = Nom;
         empreinte_carbone = Empreinte_carbone;
-        //imageView = ImageView;
+        illustration = Illustration;
 
     }
 
@@ -43,15 +45,15 @@ public class Vegetable implements Serializable {
         this.empreinte_carbone = empreinte_carbone;
     }
 
-    /*
-    public ImageView getImageView() {
-        return imageView;
+
+    public Drawable getDrawable() {
+        return illustration ;
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
+    public void setDrawable(Drawable illustration) {
+        this.illustration = illustration;
     }
-    */
+
 
 
 
