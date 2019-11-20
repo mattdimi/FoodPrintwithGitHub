@@ -35,9 +35,9 @@ public class ListeVegetablesActivity extends MotherActivity {
     String name2 = "poivron";
     String name3 = "ananas";
     int emp = 0;
-    Drawable illustration = getDrawable(R.drawable.banane) ;
+    //Drawable illustration = getDrawable(R.drawable.banane) ;
 
-    Vegetable aubergine = new Vegetable(mois, name1, emp, illustration);
+    Vegetable aubergine = new Vegetable(mois, name1, emp);
     Vegetable ananas = new Vegetable(mois, name2, emp, illustration);
     Vegetable poivron = new Vegetable(mois, name3, emp, illustration);
 
