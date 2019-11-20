@@ -28,7 +28,7 @@ public class ListeVegetablesActivity extends MotherActivity {
     // CREATION de la liste de legumes sur laquelle on va iterer pour creer les BOUTONS du gridview
 
 
-    /// Ici pour l'exemple j'ai juste changer le nom des legumes, j'ai mis tout pareil pour le reste
+    /// Ici pour l'exemple j'ai juste changé le nom des legumes, j'ai mis tout pareil pour le reste
 
     int[] mois = new int[]{0, 1};
     String name1 = "aubergine";
