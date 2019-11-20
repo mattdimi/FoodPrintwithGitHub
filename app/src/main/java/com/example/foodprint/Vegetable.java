@@ -1,19 +1,20 @@
 package com.example.foodprint;
 
-import android.widget.ImageView;
+import java.io.Serializable;
 
-public class Vegetable {
+public class Vegetable implements Serializable {
     int[] mois;
     String nom;
     int empreinte_carbone;
-    ImageView imageView;
+    //ImageView imageView;
 
 
-    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone, ImageView ImageView){
+    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone /*, ImageView ImageView */){
+
         mois = Mois;
         nom = Nom;
         empreinte_carbone = Empreinte_carbone;
-        imageView = ImageView;
+        //imageView = ImageView;
 
     }
 
@@ -42,6 +43,7 @@ public class Vegetable {
         this.empreinte_carbone = empreinte_carbone;
     }
 
+    /*
     public ImageView getImageView() {
         return imageView;
     }
@@ -49,6 +51,10 @@ public class Vegetable {
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
     }
+    */
+
+
+
 
 
 }

@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FicheProduitActivity">
 
+
+
+
     <TextView
         android:id="@+id/textPeriode"
-        android:layout_width="91dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="48dp"
+        android:layout_width="90dp"
+        android:layout_height="114dp"
         android:text="Période"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="281dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,Suspicious0dp" />
 
     <TextView
         android:id="@+id/textEmpreinte"
-        android:layout_width="91dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="48dp"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
         android:text="Empreinte Carbone du Produit"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="168dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,Suspicious0dp" />
 
     <Button
         android:id="@+id/BoutonRetour"
-        android:layout_width="151dp"
+        android:layout_width="114dp"
         android:layout_height="90dp"
         android:onClick="RetourGrid"
-        android:text="Retour à Ma Liste de Courses"
+        android:text="Retour à la liste des produits"
         tools:ignore="MissingConstraints,OnClick"
         tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="510dp" />
 
     <Button
         android:id="@+id/BoutonAjouterProduit"
-        android:layout_width="148dp"
-        android:layout_height="91dp"
+        android:layout_width="113dp"
+        android:layout_height="105dp"
         android:onClick="AjouterListe"
         android:text="Ajouter à Ma Liste de Courses"
         tools:ignore="MissingConstraints,OnClick"
@@ -57,4 +54,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="369dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

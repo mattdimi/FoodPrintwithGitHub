@@ -17,8 +17,6 @@ public interface MyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void newDay(Day day);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void newVegetable(Vegetable vegetable);
 
     @Query("Select * from days")
     public List<Day> getAllDays();
