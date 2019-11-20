@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,53 +7,66 @@
     tools:context=".FicheProduitActivity">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/textPeriode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Période"
+            tools:ignore="MissingConstraints,Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/textEmpreinte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   Empreinte Carbone du Produit"
+            tools:ignore="MissingConstraints,Suspicious0dp" />
 
 
-    <TextView
-        android:id="@+id/textPeriode"
-        android:layout_width="90dp"
-        android:layout_height="114dp"
-        android:text="Période"
-        tools:ignore="MissingConstraints,Suspicious0dp" />
+        <ImageButton
+            android:id="@+id/BoutonRetour"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="RetourGrid"
+            tools:ignore="MissingConstraints,OnClick"
+            tools:layout_editor_absoluteX="230dp"
+            tools:layout_editor_absoluteY="510dp"
+            android:background="@drawable/iconeminus"/>
 
-    <TextView
-        android:id="@+id/textEmpreinte"
-        android:layout_width="90dp"
-        android:layout_height="120dp"
-        android:text="Empreinte Carbone du Produit"
-        tools:ignore="MissingConstraints,Suspicious0dp" />
+        <ImageButton
+            android:id="@+id/BoutonAjouterProduit"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="AjouterListe"
+            tools:ignore="MissingConstraints,OnClick"
+            tools:layout_editor_absoluteX="230dp"
+            tools:layout_editor_absoluteY="510dp"
+            android:background="@drawable/iconeplus"/>
 
-    <Button
-        android:id="@+id/BoutonRetour"
-        android:layout_width="114dp"
-        android:layout_height="90dp"
-        android:onClick="RetourGrid"
-        android:text="Retour à la liste des produits"
-        tools:ignore="MissingConstraints,OnClick"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="510dp" />
 
-    <ImageButtonButton
-        android:id="@+id/BoutonAjouterProduit"
-        android:layout_width="113dp"
-        android:layout_height="105dp"
-        android:onClick="AjouterListe"
-        android:text="Ajouter à Ma Liste de Courses"
-        tools:ignore="MissingConstraints,OnClick"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="510dp" />
+
+    </LinearLayout>
+
+
 
     <EditText
         android:id="@+id/editTextQuantite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
+        android:layout_marginLeft="84dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Quantité (en g)"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="369dp" />
 
+        tools:ignore="MissingConstraints"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
