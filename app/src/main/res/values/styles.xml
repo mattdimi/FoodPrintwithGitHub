@@ -6,6 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowBackground">@color/colorPrimaryDark</item>
+    <item name="windowActionBar">@color/colorPrimaryDark</item>
+    <item name="windowNoTitle">@color/colorAccent</item>
+    <item name="android:navigationBarColor">@color/grey</item>
     </style>
 
     <style name="toolbar_theme" parent="Theme.AppCompat.Light.NoActionBar">

@@ -66,4 +66,20 @@
     <string name="Calorie_graph">Calories</string>
     <string name="Current_carbon_economy">Current carbon economy</string>
     <string name="expected_carbon_economy">Total expected carbon economy</string>
+    <string name="aubergine">aubergine</string>
+    <string name="ananas">ananas</string>
+    <string name="poivron">poivron</string>
+    <string name="abricot">abricot</string>
+    <string name="banane">banane</string>
+    <string name="cerise">cerise</string>
+    <string name="citron">citron</string>
+    <string name="clementine">clementine</string>
+    <string name="fraise">fraise</string>
+    <string name="framboise">framboise</string>
+    <string name="kiwi">kiwi</string>
+    <string name="melon">melon</string>
+    <string name="orange">orange</string>
+    <string name="pasteque">pasteque</string>
+    <string name="raisin">raisin</string>
+    <string name="tomate">tomate</string>
 </resources>

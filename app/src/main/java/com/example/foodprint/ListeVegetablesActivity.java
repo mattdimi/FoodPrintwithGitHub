@@ -3,7 +3,6 @@ package com.example.foodprint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,22 +29,8 @@ public class ListeVegetablesActivity extends MotherActivity {
 
     /// Ici pour l'exemple j'ai juste changer le nom des legumes, j'ai mis tout pareil pour le reste
 
-    int[] mois = new int[]{0, 1};
-    String name1 = "aubergine";
-    String name2 = "poivron";
-    String name3 = "ananas";
-    int emp = 0;
-    Drawable illustration = getDrawable(R.drawable.banane) ;
 
-    Vegetable aubergine = new Vegetable(mois, name1, emp, illustration);
-    Vegetable ananas = new Vegetable(mois, name2, emp, illustration);
-    Vegetable poivron = new Vegetable(mois, name3, emp, illustration);
 
-    Vegetable[] array_characters = new Vegetable[]{aubergine, poivron, ananas};
-
-    ///
-
-    List<Vegetable> lstSource = new ArrayList<>();
 
 
     @Override
@@ -59,23 +44,51 @@ public class ListeVegetablesActivity extends MotherActivity {
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
 
+        int[] mois = new int[]{0, 1};
+        String name1 = "aubergine";
+        String name2 = "poivron";
+        String name3 = "ananas";
+        float emp = 0;
 
-        setUpList();
+        String nom_image = "banane";
+        Vegetable aubergine = new Vegetable(new int[] {5,6,7}, getString(R.string.aubergine), emp,"aubergine", 0);
+        Vegetable poivron = new Vegetable(mois,getString(R.string.poivron), emp, "poivron", 0);
+        Vegetable abricot = new Vegetable(new int[] {5,6,7},getString(R.string.abricot), 0.312, "abricot", 0);
+        Vegetable ananas = new Vegetable(new int[] {1,2,0,11},getString(R.string.ananas), 0.091, "ananas",0);
+        Vegetable banane = new Vegetable(new int[] {10,11,9,1},getString(R.string.banane), 0.698, "banane",0);
+        Vegetable cerise = new Vegetable(new int[] {4,5,6},getString(R.string.cerise), 0.584, "cerise",0);
+        Vegetable citron = new Vegetable(new int[] {5,8},getString(R.string.citron), 0.529, "citron",0);
+        Vegetable clementine = new Vegetable(new int[] {10,11,0,1},getString(R.string.clementine), 0.386, "clementine",0);
+        Vegetable fraise = new Vegetable(new int[] {3,4,5},getString(R.string.fraise), 0.591, "fraise",0);
+        Vegetable framboise = new Vegetable(new int[] {3,4,5,6,7,8,9,10},getString(R.string.framboise), 0.515, "abricot",0);
+        Vegetable kiwi = new Vegetable(new int[] {11,1,2,3},getString(R.string.kiwi), 0.190, "kiwi",0);
+        Vegetable melon = new Vegetable(new int[] {5,4},getString(R.string.melon), 0.313, "melon",0);
+        Vegetable orange = new Vegetable(new int[] {0,1,10,11},getString(R.string.orange), 0.491, "orange",0);
+        Vegetable pasteque = new Vegetable(new int[] {5,6,7},getString(R.string.pasteque), 0.36, "pasteque",0);
+        Vegetable raisin = new Vegetable(new int[] {8,9},getString(R.string.raisin), 0.642, "raisin2",0);
+        Vegetable tomate = new Vegetable(new int[] {4,5,6,7,8,9},getString(R.string.tomate), 0.343, "tomate",0);
+
+
+
+        Vegetable[] array_characters = new Vegetable[]{aubergine, poivron, ananas, abricot, banane, cerise, citron, clementine, fraise, framboise, kiwi, melon, orange, pasteque, raisin, tomate};
+
+
+        List<Vegetable> lstSource = new ArrayList<>();
+
+        for (Vegetable item : array_characters) {
+            lstSource.add(item);
+
+        }
         GridView LagridView;
         LagridView = findViewById(R.id.MygridView);
         LagridView.getColumnWidth();
         GridViewAdapter adapter = new GridViewAdapter(lstSource, this);
         LagridView.setAdapter(adapter);
 
-    }
-
-    private void setUpList() {
-
-        for (Vegetable item : array_characters) {
-            lstSource.add(item);
-
         }
+
     }
+
 
     class GridViewAdapter extends BaseAdapter {
 
@@ -115,7 +128,6 @@ public class ListeVegetablesActivity extends MotherActivity {
                 final Vegetable ProduitChoisi = lstSource.get(position);
                 // NB : ProduitChoisi est un objet de la class Vegetable, il a donc toutes les méthodes associées getMois, getNom, etc
                 String nom_produit = ProduitChoisi.getNom();
-                Drawable illustration = ProduitChoisi.getDrawable();
 
 
                 /// creation de tous les boutons
@@ -123,10 +135,12 @@ public class ListeVegetablesActivity extends MotherActivity {
                 convertView = layoutInflater.inflate(R.layout.casesdelagrid, null);
 
 
-                /// Affichage de la photo des fruits   ---> A COMPLETER
+                /// Affichage de la photo des fruits
 
                 final ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
-                //imageView.setImageResource();  // changer cette ligne pour mettre la bonne image associée a chaque legume
+
+                int resourceId = mContext.getResources().getIdentifier(ProduitChoisi.getMnemonic(), "drawable", mContext.getPackageName());
+                imageView.setImageResource(resourceId);
 
 
                 /// Affichager du nom du fruit sur le bouton. Quand on clique sur le bouton ça affiche la fiche du fruit
@@ -140,7 +154,8 @@ public class ListeVegetablesActivity extends MotherActivity {
                 button.setText(lstSource.get(position).getNom());    // on met comme texte sur le bouton le nom du legume en position "position" dans la liste des legumes
                 button.setBackgroundColor(Color.RED);
                 button.setTextColor(Color.WHITE);
-//
+
+
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -156,7 +171,28 @@ public class ListeVegetablesActivity extends MotherActivity {
 
                         passageSuite.putExtra("position du fruit", position);
 
-                        startActivity(passageSuite);         // on passe a l'activité FicheProduit
+                        mContext.startActivity(passageSuite);         // on passe a l'activité FicheProduit
+
+                    }
+                });
+
+
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        //Toast.makeText(mContext, nom_produit, Toast.LENGTH_SHORT).show(); //affiche un toast avec le nom du produit selectionné
+
+                        Intent passageSuite = new Intent();
+                        passageSuite.setClass(mContext, FicheProduitActivity.class);
+                        Toast.makeText(mContext, ProduitChoisi.getNom(), Toast.LENGTH_LONG).show();
+
+                        passageSuite.putExtra("produitchoisi", ProduitChoisi);   // on passe dans le intent le vegetable associé au bouton
+
+                        passageSuite.putExtra("position du fruit", position);
+
+                        mContext.startActivity(passageSuite);         // on passe a l'activité FicheProduit
 
                     }
                 });
@@ -167,4 +203,4 @@ public class ListeVegetablesActivity extends MotherActivity {
 
         }
     }
-}
+

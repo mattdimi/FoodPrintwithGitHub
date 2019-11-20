@@ -5,16 +5,19 @@ import java.io.Serializable;
 public class Vegetable implements Serializable {
     int[] mois;
     String nom;
-    int empreinte_carbone;
+    double empreinte_carbone;
     String mnemonic;
+    double quantité;
 
 
-    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone, String fichier_image ){
+    public Vegetable(int[] Mois, String Nom, double Empreinte_carbone, String fichier_image, double Quantité ){
 
         mois = Mois;
         nom = Nom;
         empreinte_carbone = Empreinte_carbone;
         mnemonic = fichier_image;
+        quantité = Quantité;
+
 
     }
 
@@ -35,11 +38,11 @@ public class Vegetable implements Serializable {
         this.nom = nom;
     }
 
-    public int getEmpreinte_carbone() {
+    public double getEmpreinte_carbone() {
         return empreinte_carbone;
     }
 
-    public void setEmpreinte_carbone(int empreinte_carbone) {
+    public void setEmpreinte_carbone(double empreinte_carbone) {
         this.empreinte_carbone = empreinte_carbone;
     }
 
@@ -51,5 +54,11 @@ public class Vegetable implements Serializable {
         this.mnemonic = mnemonic;
     }
 
+    public double getQuantité() {
+        return quantité;
+    }
 
+    public void setQuantité(double quantité) {
+        this.quantité = quantité;
+    }
 }
