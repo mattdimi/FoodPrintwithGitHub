@@ -3,6 +3,7 @@ package com.example.foodprint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,12 +35,11 @@ public class ListeVegetablesActivity extends MotherActivity {
     String name2 = "poivron";
     String name3 = "ananas";
     int emp = 0;
-    // ImageView im =
+    Drawable illustration = getDrawable(R.drawable.banane) ;
 
-
-    Vegetable aubergine = new Vegetable(mois, name1, emp /*, im */);
-    Vegetable ananas = new Vegetable(mois, name2, emp  /*, im */);
-    Vegetable poivron = new Vegetable(mois, name3, emp /*, im */);
+    Vegetable aubergine = new Vegetable(mois, name1, emp, illustration);
+    Vegetable ananas = new Vegetable(mois, name2, emp, illustration);
+    Vegetable poivron = new Vegetable(mois, name3, emp, illustration);
 
     Vegetable[] array_characters = new Vegetable[]{aubergine, poivron, ananas};
 
@@ -115,6 +115,7 @@ public class ListeVegetablesActivity extends MotherActivity {
                 final Vegetable ProduitChoisi = lstSource.get(position);
                 // NB : ProduitChoisi est un objet de la class Vegetable, il a donc toutes les méthodes associées getMois, getNom, etc
                 String nom_produit = ProduitChoisi.getNom();
+                Drawable illustration = ProduitChoisi.getDrawable();
 
 
                 /// creation de tous les boutons
@@ -125,7 +126,7 @@ public class ListeVegetablesActivity extends MotherActivity {
                 /// Affichage de la photo des fruits   ---> A COMPLETER
 
                 final ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
-                imageView.setImageResource(R.drawable.ananas);  // changer cette ligne pour mettre la bonne image associée a chaque legume
+                imageView.setImageResource();  // changer cette ligne pour mettre la bonne image associée a chaque legume
 
 
                 /// Affichager du nom du fruit sur le bouton. Quand on clique sur le bouton ça affiche la fiche du fruit
