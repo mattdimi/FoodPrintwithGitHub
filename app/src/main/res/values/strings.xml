@@ -65,5 +65,5 @@
     <string name="Step_graph">Steps</string>
     <string name="Calorie_graph">Calories</string>
     <string name="Current_carbon_economy">Current carbon economy</string>
-    <string name="expected_carbon_economy">Total expected carbon economy</string>
+    <string name="expected_carbon_economy">Total expected carbon economy (kg)</string>
 </resources>
