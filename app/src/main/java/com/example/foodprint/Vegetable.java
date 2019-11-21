@@ -7,16 +7,14 @@ import java.io.Serializable;
 public class Vegetable implements Serializable {
     int[] mois;
     String nom;
-    int empreinte_carbone;
-    Drawable illustration;
+    double emp;
+    double quantity;
+    String mnemonic;
 
 
-    public Vegetable(int[] Mois, String Nom, int Empreinte_carbone, Drawable Illustration ){
+    public Vegetable(int[] Mois, String Nom, float Empreinte_carbone,  String mnemonic, double quantity){
 
-        mois = Mois;
-        nom = Nom;
-        empreinte_carbone = Empreinte_carbone;
-        illustration = Illustration;
+
 
     }
 
@@ -37,26 +35,26 @@ public class Vegetable implements Serializable {
         this.nom = nom;
     }
 
-    public int getEmpreinte_carbone() {
-        return empreinte_carbone;
+    public double getEmpreinte_carbone() {
+        return emp;
     }
 
     public void setEmpreinte_carbone(int empreinte_carbone) {
-        this.empreinte_carbone = empreinte_carbone;
-    }
-
-
-    public Drawable getDrawable() {
-        return illustration ;
-    }
-
-    public void setDrawable(Drawable illustration) {
-        this.illustration = illustration;
+        this.emp = empreinte_carbone;
     }
 
 
 
 
 
+    public String getMnemonic() {
+        return this.getMnemonic();
+    }
 
+    public double getQuantity() {
+        return this.quantity;
+    }
+    public void setQuantity(double quantity){
+    this.quantity = quantity;
+    }
 }

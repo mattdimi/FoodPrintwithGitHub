@@ -58,7 +58,7 @@ public class FicheProduitActivity extends AppCompatActivity {
         EditText et = findViewById(R.id.editTextQuantite);
         String quantité = et.getText().toString();
         double quantité_number = Double.parseDouble(quantité);
-        ProduitChoisi.setQuantité(quantité_number);
+        ProduitChoisi.setQuantity(quantité_number);
 
         //double emprunte_carbone = quantité_number *
 
@@ -68,6 +68,8 @@ public class FicheProduitActivity extends AppCompatActivity {
         ajoutListe.putExtra("quantité", quantité_number);
         startActivity(ajoutListe);
         finish();
+
+
 
 
     }

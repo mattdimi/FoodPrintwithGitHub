@@ -106,7 +106,7 @@ public class Courses extends MotherActivity {
 
                 Vegetable legume_affiche = (Vegetable) getItem(position);
                 String nom_legume = legume_affiche.getNom();
-                double quantite = legume_affiche.getQuantité();
+                double quantite = legume_affiche.getQuantity();
 
 
                 // parametrage des textes

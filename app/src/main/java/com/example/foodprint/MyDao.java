@@ -17,7 +17,6 @@ public interface MyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void newDay(Day day);
 
-
     @Query("Select * from days")
     public List<Day> getAllDays();
 
@@ -31,6 +30,12 @@ public interface MyDao {
     public void DeleteDayDyDate(Day day);
     @Update
     public void updateDay(Day day);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public void newVegetable(Unserialized_vegetable vegetable);
+
+    @Query("Select * from vegetables")
+    public List<Day> getAllVegetables();
 
 
 

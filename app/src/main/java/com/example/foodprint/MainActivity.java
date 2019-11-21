@@ -6,22 +6,13 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.room.Room;
 
-import android.app.AlarmManager;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -33,7 +24,6 @@ import java.util.Calendar;
 
 public class MainActivity extends MotherActivity implements  SensorEventListener{
     BottomNavigationView navigationView;
-    private final String CHANNEL_ID = "My_Notification_Chanel";
 
 
     TextView steps_today,calories_today,distance_today,weight_main,
