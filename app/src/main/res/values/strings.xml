@@ -9,7 +9,6 @@
     <string name="steps">Steps</string>
     <string name="km">km</string>
     <string name="calories">Calories</string>
-
     <string name="title_activity_main">MainActivity</string>
     <string name="title_notifications">Notifications</string>
     <string name="language">Language</string>
@@ -82,4 +81,20 @@
     <string name="pasteque">pasteque</string>
     <string name="raisin">raisin</string>
     <string name="tomate">tomate</string>
+    <string name="asperge">asperge</string>
+    <string name="avocat">avocat</string>
+    <string name="brocoli">brocoli</string>
+    <string name="carotte">carotte</string>
+    <string name="celeri">celeri</string>
+    <string name="champignon">champignon</string>
+    <string name="choux">choux</string>
+    <string name="courgette">courgette</string>
+    <string name="mais">mais</string>
+    <string name="navet">navet</string>
+    <string name="oignon">oignon</string>
+    <string name="petit_pois">petit_pois</string>
+    <string name="poireau">poireau</string>
+    <string name="pomme_de_terre">pomme_de_terre</string>
+    <string name="radis">radis</string>
+    <string name="salade">salade</string>
 </resources>
