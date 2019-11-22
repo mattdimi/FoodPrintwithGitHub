@@ -8,13 +8,12 @@ Elise Desbordes
 Toscane Frinzi
 Yannis Haddad
 Lisa Mollo
-Mathieu Dimitriades
+Mathieu-Savvas Dimitriades
 
 Fonctionnalités de l'appli : 
 1) Liste de courses avec fruits et légumes et valeur de son empreinte carbone.
-2) Pédomètre qui compare l'emprunte carbone de la distance parcourue à pied avec celles d'autres moyens de transport qui sont l'avion, la voiture
-, le train et le bateau avec un graphe.
-3) Stockage d'un bilan des activités journalières.
+2) Pédomètre qui compare l'emprunte carbone de la distance parcourue à pied avec celles d'autres moyens de transport qui sont l'avion, la voiture, le train et le bateau avec un graphe.
+3) Stockage d'un bilan des activités journalière et de la liste des courses.
 
 Bibliothèques utilisées : 
     implementation 'androidx.appcompat:appcompat:1.0.2'
