@@ -15,27 +15,36 @@ public interface MyDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void newDay(Day day);
+    void newDay(Day day);
 
     @Query("Select * from days")
-    public List<Day> getAllDays();
+    List<Day> getAllDays();
 
     @Query("Select sum(steps) from days")
-    public int getTotalStepCount();
+    int getTotalStepCount();
 
     @Query("Select steps from days where date = :date")
-    public int getStepsByDate(String date);
+    int getStepsByDate(String date);
 
     @Delete
-    public void DeleteDayDyDate(Day day);
+    void DeleteDayDyDate(Day day);
     @Update
-    public void updateDay(Day day);
+    void updateDay(Day day);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void newVegetable(Unserialized_vegetable vegetable);
+    void newVegetable(Unserialized_vegetable vegetable);
 
     @Query("Select * from vegetables")
-    public List<Day> getAllVegetables();
+    List<Unserialized_vegetable> getAllVegetables();
+
+    @Delete
+    void DeleteVegetable(Unserialized_vegetable vegetable);
+
+    @Query("DELETE FROM vegetables")
+    void DeleteAll();
+
+
+
 
 
 

@@ -7,65 +7,70 @@
     tools:context=".FicheProduitActivity">
 
 
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/toolbar"></include>
+
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
             android:id="@+id/textPeriode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Période"
-            tools:ignore="MissingConstraints,Suspicious0dp" />
+            android:fontFamily="@font/annie_use_your_telescope"
+            android:padding="4dp"
+            android:text="@string/periode"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textEmpreinte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="   Empreinte Carbone du Produit"
-            tools:ignore="MissingConstraints,Suspicious0dp" />
-
-
-        <ImageButton
-            android:id="@+id/BoutonRetour"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="RetourGrid"
-            tools:ignore="MissingConstraints,OnClick"
-            tools:layout_editor_absoluteX="230dp"
-            tools:layout_editor_absoluteY="510dp"
-            android:background="@drawable/iconeminus"/>
+            android:fontFamily="@font/annie_use_your_telescope"
+            android:padding="4dp"
+            android:text="@string/empreinte_carbone_du_pro"
+            android:textSize="30sp" />
 
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/addbutton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/iconeplus"
+        android:backgroundTint="#38743B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <EditText
         android:id="@+id/editTextQuantite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="84dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Quantité (en kg)"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-
-        tools:ignore="MissingConstraints"/>
-
-    <ImageButton
-        android:id="@+id/BoutonAjouterProduit"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/iconeplus"
-        android:onClick="AjouterListe"
-        tools:ignore="MissingConstraints,OnClick"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="510dp" />
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:hint="Quantité (en kg)"
+        android:inputType="numberDecimal"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/linearLayout3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

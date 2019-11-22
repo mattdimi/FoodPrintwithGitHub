@@ -7,12 +7,15 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.room.Room;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,7 +25,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class MainActivity extends MotherActivity implements  SensorEventListener{
+public class MainActivity extends MotherActivity implements  SensorEventListener, View.OnClickListener {
     BottomNavigationView navigationView;
 
 
@@ -57,6 +60,7 @@ public class MainActivity extends MotherActivity implements  SensorEventListener
     Unit_Converter unit_converter;
 
     NotificationManagerCompat notificationManagerCompat;
+    Button carbon_economy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -80,7 +84,7 @@ public class MainActivity extends MotherActivity implements  SensorEventListener
                 distance_today = findViewById(R.id.distance_today);
                 calories_today = findViewById(R.id.calories_today);
                 weight_main = findViewById(R.id.weight_main);
-                days_remaining_main = findViewById(R.id.days_remaining_main);
+                carbon_economy = findViewById(R.id.carbon_economy);
                 percentage_view = findViewById(R.id.pourcentage_view);
                 steps = findViewById(R.id.steps_progress);
 
@@ -137,7 +141,7 @@ public class MainActivity extends MotherActivity implements  SensorEventListener
 
                 refresh_display();
 
-
+                carbon_economy.setOnClickListener(this);
 
             }
 
@@ -155,7 +159,6 @@ public class MainActivity extends MotherActivity implements  SensorEventListener
                 distance_today.setText(String.valueOf(distance));
                 calories_today.setText(String.valueOf(effective_calories_today));
                 weight_main.setText(String.valueOf(weight));
-                days_remaining_main.setText(String.valueOf(days_remaining));
                 percentage_view.setText(percentage_achieved+" %");
 
             }
@@ -260,7 +263,6 @@ public class MainActivity extends MotherActivity implements  SensorEventListener
                     steps.setProgress(max_progress);
                 }
                 weight_main.setText(String.valueOf(weight));
-                days_remaining_main.setText(String.valueOf(days_remaining));
                 percentage_view.setText(percentage_achieved+" %");
             }
 
@@ -277,8 +279,16 @@ public class MainActivity extends MotherActivity implements  SensorEventListener
             }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.carbon_economy:
+                Intent intent = new Intent(MainActivity.this, Comparaison.class);
+                startActivity(intent);
 
-
+                break;
         }
+    }
+}
 
 

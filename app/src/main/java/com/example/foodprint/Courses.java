@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,11 +16,18 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class Courses extends MotherActivity {
+public class Courses extends MotherActivity implements View.OnClickListener {
 
-    ArrayList<Vegetable> Liste_Courses = new ArrayList<>();
+    ArrayList<Unserialized_vegetable> Liste_Courses = new ArrayList<>();
+    ArrayList<String> liste = new ArrayList<>();
+    Button new_list, add_item;
+    ListView listView;
+    double total_carbone = 0;
+    TextView textView;
+    DecimalFormat df;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +41,39 @@ public class Courses extends MotherActivity {
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
 
+        new_list = findViewById(R.id.new_list);
+        new_list.setOnClickListener(this);
+
+        add_item = findViewById(R.id.boutonAjouter);
+        add_item.setOnClickListener(this);
+
+        textView = findViewById(R.id.total_carbone);
+        df = new DecimalFormat("#.###");
 
 
-        Intent produitajouté = getIntent();
-        Vegetable ProduitAjouté = (Vegetable) produitajouté.getSerializableExtra("produitAjout");
 
 
         // ajout du produit à la liste de courses
-        if(ProduitAjouté != null){
-            Liste_Courses.add(ProduitAjouté);
+        if (MainActivity.myDatabase !=null){
+                Liste_Courses = (ArrayList<Unserialized_vegetable>) MainActivity.myDatabase.myDao().getAllVegetables();
+                for (Unserialized_vegetable vegetable : Liste_Courses)
+                {
+
+                    Double d = vegetable.emp*vegetable.quantity;
+                    total_carbone +=d;
+                    String s = df.format(d);
+                    liste.add(0,vegetable.nom + " " + vegetable.quantity + " " + "kg" + " "+s + "kg de CO2" );
+
+                }
+
         }
 
 
-        ListView listView = findViewById(R.id.listView);
-        ListViewAdapter MonAdapter = new ListViewAdapter(Liste_Courses, this);
+         listView = findViewById(R.id.listView);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(Courses.this, android.R.layout.simple_list_item_1, liste);
 //android.R.layout.simple_list_item_1
-        listView.setAdapter(MonAdapter);
+        listView.setAdapter(arrayAdapter);
+        textView.setText(df.format(total_carbone));
 
 
     }
@@ -59,14 +85,35 @@ public class Courses extends MotherActivity {
 
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.new_list:
+                if (MainActivity.myDatabase!=null){
+                        MainActivity.myDatabase.myDao().DeleteAll();
+                        textView.setText(String.valueOf(0));
+
+                 listView = findViewById(R.id.listView);
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(Courses.this, android.R.layout.simple_list_item_1, new String[]{});
+//android.R.layout.simple_list_item_1
+                listView.setAdapter(arrayAdapter);
+
+                }
+                break;
+            case R.id.boutonAjouter:
+                AjouterProduit(view);
+                break;
+        }
+    }
+
 
 
     class ListViewAdapter extends BaseAdapter {
 
-        ArrayList<Vegetable> lstSource;    // liste de legumes sur laquelle on itere pour creer les boutons
+        ArrayList<Unserialized_vegetable> lstSource;    // liste de legumes sur laquelle on itere pour creer les boutons
         Context mContext;
 
-        public ListViewAdapter(ArrayList<Vegetable> lstSource, Context mContext) {
+        public ListViewAdapter(ArrayList<Unserialized_vegetable> lstSource, Context mContext) {
 
 
             this.lstSource = lstSource;
@@ -100,7 +147,7 @@ public class Courses extends MotherActivity {
                 final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
                 convertView = layoutInflater.inflate(R.layout.lignesdelaliste, null);
 
-                Vegetable legume_affiche = (Vegetable) getItem(position);
+                Unserialized_vegetable.Vegetable legume_affiche = (Unserialized_vegetable.Vegetable) getItem(position);
                 String nom_legume = legume_affiche.getNom();
                 double quantite = legume_affiche.getQuantité();
                 double empreinte_carbone = legume_affiche.getEmpreinte_carbone()*quantite;
