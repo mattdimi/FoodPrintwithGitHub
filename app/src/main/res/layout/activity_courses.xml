@@ -28,19 +28,15 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="@font/annie_use_your_telescope"
-            android:gravity="center"
             android:text="@string/total"
-            android:textSize="25sp"></TextView>
+            android:gravity="center"></TextView>
 
         <TextView
             android:id="@+id/total_carbone"
+            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:textSize="25sp"></TextView>
+            android:layout_weight="1"></TextView>
 
     </LinearLayout>
 
@@ -53,16 +49,14 @@
         app:layout_constraintBottom_toTopOf="@+id/nav_view_courses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
         <Button
-            android:id="@+id/new_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
             android:layout_weight="1"
-            android:background="@drawable/rectangle_shape"
-            android:fontFamily="@font/annie_use_your_telescope"
+            android:id="@+id/new_list"
             android:padding="4dp"
+            android:background="@drawable/rectangle_shape"
+            android:layout_margin="2dp"
             android:text="@string/nouvelle_liste"></Button>
 
         <Button
@@ -73,9 +67,9 @@
 
             android:layout_weight="1"
             android:background="@drawable/rectangle_shape"
-            android:fontFamily="@font/annie_use_your_telescope"
             android:padding="4dp"
-            android:text="@string/nouveau_pro" />
+            android:text="@string/nouveau_pro"
+             />
 
 
 

@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-public class FicheProduitActivity extends AppCompatActivity {
-
+public class FicheProduitActivity extends AppCompatActivity implements View.OnClickListener{
+        ImageButton add, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,18 +19,25 @@ public class FicheProduitActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_produit);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //toolbar.setTitle("Fiche Produit");
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.app_name));
+        setSupportActionBar(toolbar);
 
         Intent recupProduitChoisi = getIntent();
-        Vegetable ProduitChoisi = (Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
+        Unserialized_vegetable.Vegetable ProduitChoisi = (Unserialized_vegetable.Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
         int position = recupProduitChoisi.getIntExtra("position du fruit", 0);
 
         //affichage de toutes les infos du legume en modifiant le layout
 
         TextView tvPeriode = findViewById(R.id.textPeriode);
         TextView tvEmpreinte = findViewById(R.id.textEmpreinte);
+
+
+        add = findViewById(R.id.addbutton);
+        back = findViewById(R.id.back_button);
+
+        add.setOnClickListener(this);
+        back.setOnClickListener(this);
 
         String[] Liste_Mois = new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
         int[] Liste_Mois_De_Saison = ProduitChoisi.getMois();
@@ -50,22 +59,34 @@ public class FicheProduitActivity extends AppCompatActivity {
     public void AjouterListe(View view) {
 
         Intent recupProduitChoisi = getIntent();
-        Vegetable ProduitChoisi = (Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
-        int position = recupProduitChoisi.getIntExtra("position du fruit", 0);
+        Unserialized_vegetable.Vegetable ProduitChoisi = (Unserialized_vegetable.Vegetable) recupProduitChoisi.getSerializableExtra("produitchoisi");   // on recupère l'objet "vegetables" correspondant au produit choisi
         Intent ajoutListe = getIntent();
 
+        EditText et;
+        String quantité;
+        double quantité_number ;
+         quantité_number = 0;
 
-        EditText et = findViewById(R.id.editTextQuantite);
-        String quantité = et.getText().toString();
-        double quantité_number = Double.parseDouble(quantité);
-        ProduitChoisi.setQuantity(quantité_number);
 
-        //double emprunte_carbone = quantité_number *
+        try {
+
+             et = findViewById(R.id.editTextQuantite);
+             quantité = et.getText().toString();
+            quantité_number = Double.parseDouble(quantité);
+            ProduitChoisi.setQuantité(quantité_number);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        if (MainActivity.myDatabase !=null){
+            MainActivity.myDatabase.myDao().newVegetable(new Unserialized_vegetable(ProduitChoisi));
+        }
+
 
         ajoutListe.setClass(this, Courses.class);
         ajoutListe.putExtra("produitAjout", ProduitChoisi);
-        ajoutListe.putExtra("position du fruit", position);
         ajoutListe.putExtra("quantité", quantité_number);
+
         startActivity(ajoutListe);
         finish();
 
@@ -81,5 +102,16 @@ public class FicheProduitActivity extends AppCompatActivity {
         finish();
 
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.addbutton:
+                AjouterListe(view);
+                break;
+            case R.id.back_button:
+                RetourGrid(view);
+        }
     }
 }
